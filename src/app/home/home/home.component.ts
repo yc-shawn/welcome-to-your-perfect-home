@@ -26,4 +26,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  onJoinRoom() {
+    this._router.navigateByUrl('/game');
+  }
+
 }

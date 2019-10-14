@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  height: 100%;
+
+  .game__actions {
+    height: 256px;
+  }
+
+  .game__container {
+    position: relative;
+    max-width: 1024px;
+    margin: 0 auto;
+
+    .game__map {
+      width: 100%;
+    }
+
+    .game__map-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
