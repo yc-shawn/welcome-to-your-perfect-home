@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '@app/_core';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,21 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  gameStarted = false;
+
+  constructor(
+    private _router: Router,
+    public user: UserService,
+  ) { }
 
   ngOnInit() {}
 
   onStartGame() {
-    this._router.navigateByUrl('/login');
+    if (this.user.user) {
+      this.gameStarted = true;
+    } else {
+      this._router.navigateByUrl('/login');
+    }
   }
 
 }

@@ -1,4 +1,32 @@
 
-<div class="home__start-button-container">
+<div class="home__start-button-container" *ngIf="!gameStarted">
+  <h1 class="home__start-button-user-name" *ngIf="user.user">Hi, {{user.user?.name}}</h1>
   <button class="home__start-button" (click)="onStartGame()">Start Game</button>
 </div>
+
+<main class="home__main-container" *ngIf="gameStarted && user.user">
+  <section class="home__main-section">
+    <h1>Hi, {{user.user?.name}}</h1>
+
+    <h4>Room</h4>
+    <div>
+      <button mat-raised-button color="primary">
+        Join
+      </button>
+    </div>
+  </section>
+
+  <section class="home__main-section">
+    <h4>Rank (Most win)</h4>
+    <ol>
+      <li>Shawn <span class="float-right">17</span></li>
+      <li>Katherine <span class="float-right">0</span></li>
+    </ol>
+
+    <h4 class="mt-5">Rank (Top Score)</h4>
+    <ol>
+      <li>Shawn <span class="float-right">110</span></li>
+      <li>Katherine <span class="float-right">95</span></li>
+    </ol>
+  </section>
+</main>
