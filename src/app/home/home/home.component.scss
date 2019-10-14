@@ -62,9 +62,26 @@
     padding: 24px;
     border-radius: 5px;
 
+    .home__main-user-name {
+      margin-top: 0;
+
+      .home__main-not-user {
+        font-size: 13px;
+      }
+    }
+
     .home__main-section {
-      min-width: 300px;
+      min-width: 275px;
       margin: 24px;
+    }
+
+    @media screen and (max-width: 576px) {
+      flex-direction: column;
+
+      .home__main-section {
+        min-width: 250px;
+        margin: 12px 0;
+      }
     }
   }
 }

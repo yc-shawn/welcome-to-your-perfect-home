@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  user = { name: 'Shawn' };
+  user;
 
   constructor(private _router: Router) { }
 

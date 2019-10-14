@@ -6,7 +6,9 @@
 
 <main class="home__main-container" *ngIf="gameStarted && user.user">
   <section class="home__main-section">
-    <h1>Hi, {{user.user?.name}}</h1>
+    <h1 class="home__main-user-name">
+      Hi, {{user.user?.name}} <a class="home__main-not-user" [routerLink]="['login']">Not you?</a>
+    </h1>
 
     <h4>Room</h4>
     <div>
@@ -17,16 +19,20 @@
   </section>
 
   <section class="home__main-section">
-    <h4>Rank (Most win)</h4>
+    <h4>Ranking (Most win)</h4>
     <ol>
-      <li>Shawn <span class="float-right">17</span></li>
+      <li>Zhigang <span class="float-right">5</span></li>
+      <li>Shawn <span class="float-right">3</span></li>
+      <li>Xingsi <span class="float-right">1</span></li>
       <li>Katherine <span class="float-right">0</span></li>
     </ol>
 
-    <h4 class="mt-5">Rank (Top Score)</h4>
+    <h4 class="mt-5">Ranking (Top Score)</h4>
     <ol>
+      <li>Zhigang <span class="float-right">126</span></li>
       <li>Shawn <span class="float-right">110</span></li>
-      <li>Katherine <span class="float-right">95</span></li>
+      <li>Shawn <span class="float-right">105</span></li>
+      <li>Xingsi <span class="float-right">99</span></li>
     </ol>
   </section>
 </main>
