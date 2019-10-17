@@ -1,81 +1,98 @@
-<section class="game__container game__actions">
-  <div>
-    <h4>City Plan</h4>
-  </div>
-</section>
-<section class="game__container">
-  <div class="game__map-container">
-    <img src="assets/images/game.jpg" alt="game" class="game__map">
-    <div class="game__map-overlay">
-      <!-- User Name -->
-      <div class="game__map-overlay-test game__map-overlay-name">{{userName}}</div>
+<div class="game__mask"></div>
 
-      <!-- Streets -->
-      <ng-container *ngFor="let street of streets">
-
-        <!-- Houses -->
-        <ng-container *ngFor="let house of street.houses; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-house-{{i}}"
-            [class.game__map-overlay-house-with-pool]="street.poolIndex.includes(i)"
-            [style.top.%]="street.top">{{ 15 - i }}</span>
-        </ng-container>
-
-        <!-- Fences -->
-        <ng-container *ngFor="let fence of street.fences; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-fence-{{i}}"
-            [style.top.%]="street.top"></span>
-        </ng-container>
-
-        <!-- Parks -->
-        <ng-container *ngFor="let park of street.parks; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-park-{{i}} game__map-overlay-marked"
-            [style.top.%]="street.top - 4.6"></span>
-        </ng-container>
-      </ng-container>
-
-      <!-- Pools -->
-      <ng-container *ngFor="let pool of pools; let i = index">
-        <ng-container *ngFor="let slot of pool.slots; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-pool-{{i}} game__map-overlay-marked"
-            [style.left.%]="pool.left"></span>
-        </ng-container>
-      </ng-container>
-
-      <!-- Agencies -->
-      <ng-container *ngFor="let agency of agencies; let i = index">
-        <ng-container *ngFor="let slot of agency.slots; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-agency-{{i}} game__map-overlay-marked"
-            [style.left.%]="agency.left" [style.transform]="'translateY(' + agency.offset + '%)'"></span>
-        </ng-container>
-      </ng-container>
-
-      <!-- Estates -->
-      <ng-container *ngFor="let estate of estates; let i = index">
-        <ng-container *ngFor="let slot of estate.slots; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-estate-{{i}} game__map-overlay-marked"
-            [style.left.%]="estate.left" [style.transform]="'translateY(' + estate.offset + '%)'"></span>
-        </ng-container>
-      </ng-container>
-
-      <!-- Bises -->
-      <ng-container *ngFor="let bis of bises; let i = index">
-        <ng-container *ngFor="let slot of bis.slots; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-bis-{{i}} game__map-overlay-marked"
-            [style.left.%]="bis.left"></span>
-        </ng-container>
-      </ng-container>
-
-      <!-- Round about -->
-      <ng-container *ngFor="let slot of roundAbout.slots; let i = index">
-        <span class="game__map-overlay-test game__map-overlay-round-about-{{i}} game__map-overlay-marked"
-          [style.left.%]="roundAbout.left"></span>
-      </ng-container>
-
-      <!-- Refusal -->
-      <ng-container *ngFor="let slot of refusal.slots; let i = index">
-        <span class="game__map-overlay-test game__map-overlay-refusal-{{i}} game__map-overlay-marked"
-          [style.left.%]="refusal.left"></span>
-      </ng-container>
+<main class="game">
+  <section class="game__container game__actions">
+    <div>
+      <div class="game__row">
+        <app-game-card src="plan/plan_44"></app-game-card>
+        <app-game-card src="plan/plan_66"></app-game-card>
+        <app-game-card src="plan/plan_55"></app-game-card>
+      </div>
+      <div class="game__row">
+        <app-game-card src="plan/plan_44"></app-game-card>
+        <app-game-card src="plan/plan_66"></app-game-card>
+        <app-game-card src="plan/plan_55"></app-game-card>
+      </div>
+      <div class="game__row">
+        <app-game-card src="plan/plan_44"></app-game-card>
+        <app-game-card src="plan/plan_66"></app-game-card>
+        <app-game-card src="plan/plan_55"></app-game-card>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  <section class="game__container">
+    <div class="game__map-container">
+      <img src="assets/images/game.jpg" alt="game" class="game__map">
+      <div class="game__map-overlay">
+        <!-- User Name -->
+        <div class="game__map-overlay-test game__map-overlay-name">{{userName}}</div>
+
+        <!-- Streets -->
+        <ng-container *ngFor="let street of streets">
+
+          <!-- Houses -->
+          <ng-container *ngFor="let house of street.houses; let i = index">
+            <span class="game__map-overlay-test game__map-overlay-house-{{i}}"
+              [class.game__map-overlay-house-with-pool]="street.poolIndex.includes(i)"
+              [style.top.%]="street.top">{{ 15 - i }}</span>
+          </ng-container>
+
+          <!-- Fences -->
+          <ng-container *ngFor="let fence of street.fences; let i = index">
+            <span class="game__map-overlay-test game__map-overlay-fence-{{i}}" [style.top.%]="street.top"></span>
+          </ng-container>
+
+          <!-- Parks -->
+          <ng-container *ngFor="let park of street.parks; let i = index">
+            <span class="game__map-overlay-test game__map-overlay-park-{{i}} game__map-overlay-marked"
+              [style.top.%]="street.top - 4.6"></span>
+          </ng-container>
+        </ng-container>
+
+        <!-- Pools -->
+        <ng-container *ngFor="let pool of pools; let i = index">
+          <ng-container *ngFor="let slot of pool.slots; let i = index">
+            <span class="game__map-overlay-test game__map-overlay-pool-{{i}} game__map-overlay-marked"
+              [style.left.%]="pool.left"></span>
+          </ng-container>
+        </ng-container>
+
+        <!-- Agencies -->
+        <ng-container *ngFor="let agency of agencies; let i = index">
+          <ng-container *ngFor="let slot of agency.slots; let i = index">
+            <span class="game__map-overlay-test game__map-overlay-agency-{{i}} game__map-overlay-marked"
+              [style.left.%]="agency.left" [style.transform]="'translateY(' + agency.offset + '%)'"></span>
+          </ng-container>
+        </ng-container>
+
+        <!-- Estates -->
+        <ng-container *ngFor="let estate of estates; let i = index">
+          <ng-container *ngFor="let slot of estate.slots; let i = index">
+            <span class="game__map-overlay-test game__map-overlay-estate-{{i}} game__map-overlay-marked"
+              [style.left.%]="estate.left" [style.transform]="'translateY(' + estate.offset + '%)'"></span>
+          </ng-container>
+        </ng-container>
+
+        <!-- Bises -->
+        <ng-container *ngFor="let bis of bises; let i = index">
+          <ng-container *ngFor="let slot of bis.slots; let i = index">
+            <span class="game__map-overlay-test game__map-overlay-bis-{{i}} game__map-overlay-marked"
+              [style.left.%]="bis.left"></span>
+          </ng-container>
+        </ng-container>
+
+        <!-- Round about -->
+        <ng-container *ngFor="let slot of roundAbout.slots; let i = index">
+          <span class="game__map-overlay-test game__map-overlay-round-about-{{i}} game__map-overlay-marked"
+            [style.left.%]="roundAbout.left"></span>
+        </ng-container>
+
+        <!-- Refusal -->
+        <ng-container *ngFor="let slot of refusal.slots; let i = index">
+          <span class="game__map-overlay-test game__map-overlay-refusal-{{i}} game__map-overlay-marked"
+            [style.left.%]="refusal.left"></span>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</main>
