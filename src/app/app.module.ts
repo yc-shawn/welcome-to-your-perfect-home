@@ -9,7 +9,7 @@ import { CoreModule } from '@app/_core/core.module';
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`
 })
-class AppComponent {}
+export class AppComponent { }
 
 @NgModule({
   declarations: [AppComponent],

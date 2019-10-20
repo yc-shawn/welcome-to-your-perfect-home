@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "node_modules/.bin/ng build --prod && node_modules/.bin/gulp deploy"
   },
   "private": true,
   "dependencies": {
@@ -31,10 +32,13 @@
     "@angular/cli": "~8.3.0",
     "@angular/compiler-cli": "~8.2.3",
     "@angular/language-service": "~8.2.3",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-gh-pages": "^0.5.4",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
