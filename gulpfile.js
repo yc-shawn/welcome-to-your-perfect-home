@@ -10,7 +10,7 @@ const preDeploy = () => {
 }
 
 const doDeploy = () => {
-  return gulp.src('./dist/welcome/**/*')
+  return gulp.src('./dist/welcome-to-your-perfect-home/**/*')
     .pipe(ghPages({ force: true, message: 'update' }));
 }
 

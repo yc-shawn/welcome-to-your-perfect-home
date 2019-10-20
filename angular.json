@@ -17,7 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/welcome",
+            "outputPath": "dist/welcome-to-your-perfect-home",
+            // "baseHref": "welcome-to-your-perfect-home",
+            "deployUrl": "welcome-to-your-perfect-home/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
