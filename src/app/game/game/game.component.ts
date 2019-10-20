@@ -9,6 +9,8 @@ export class GameComponent implements OnInit {
 
   userName = 'Shawn';
 
+  selectedHouse = null;
+
   streets: any[] = [
     { amount: 10, top: 9.5, poolIndex: [2, 3, 7] },
     { amount: 11, top: 27.3, poolIndex: [3, 7, 10] },
@@ -48,29 +50,67 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.streets.forEach(street => {
-      street.houses = new Array(street.amount).fill('');
-      street.fences = new Array(street.amount - 1).fill('');
-      street.parks = new Array(street.amount - 7).fill('');
+      street.houses = this._generateSlot(street.amount);
+      street.fences = this._generateSlot(street.amount - 1);
+      street.parks = this._generateSlot(street.amount - 7);
     });
 
     this.pools.forEach(pool => {
-      pool.slots = new Array(pool.amount).fill('');
+      pool.slots = this._generateSlot(pool.amount);
     });
 
     this.agencies.forEach(agency => {
-      agency.slots = new Array(agency.amount).fill('');
+      agency.slots = this._generateSlot(agency.amount);
     });
 
     this.estates.forEach(estate => {
-      estate.slots = new Array(estate.amount).fill('');
+      estate.slots = this._generateSlot(estate.amount);
     });
 
     this.bises.forEach(bis => {
-      bis.slots = new Array(bis.amount).fill('');
+      bis.slots = this._generateSlot(bis.amount);
     });
 
-    this.roundAbout.slots = new Array(this.roundAbout.amount).fill('');
-    this.refusal.slots = new Array(this.refusal.amount).fill('');
+    this.roundAbout.slots = this._generateSlot(this.roundAbout.amount);
+    this.refusal.slots = this._generateSlot(this.refusal.amount);
+  }
+
+  onHouse(house, street, index: number) {
+    this.selectedHouse = house;
+    this.selectedHouse.canPool = street.poolIndex.includes(index);
+  }
+
+  onHouseNumberCleared() {
+    this.selectedHouse.value = null;
+    this.selectedHouse = null;
+  }
+
+  onHouseNumberSelected({ choosedNumber, addPool}) {
+    this.selectedHouse.value = choosedNumber;
+    this.selectedHouse.addPool = addPool;
+    this.selectedHouse = null;
+  }
+
+  /**
+   * Mark given slot
+   *
+   * @param slot - Slot object
+   */
+  onMark(slot) {
+    slot.marked = !slot.marked;
+  }
+
+  /**
+   * Generate array of slots
+   *
+   * @param amount - Numher of slots
+   */
+  private _generateSlot(amount: number): any[] {
+    const slots = [];
+    for (let index = 0; index < amount; index++) {
+      slots.push(new Object());
+    }
+    return slots;
   }
 
 }

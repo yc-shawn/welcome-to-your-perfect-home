@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.16);
+  padding: 57% 3% 3% 3%;
+
+  .game-number__container {
+    background-color: rgba(256, 256, 256, 0.9);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+
+    .game-number__choosed-number {
+      font-size: 48px;
+      margin: 15px;
+    }
+
+    .game-number__numbers {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 195px;
+      justify-content: center;
+      > button {
+        margin: 0 5px 5px 5px;
+      }
+    }
+  }
+}

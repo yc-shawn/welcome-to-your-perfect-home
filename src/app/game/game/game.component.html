@@ -25,7 +25,7 @@
       <img src="/welcome-to-your-perfect-home/assets/images/game.jpg" alt="game" class="game__map">
       <div class="game__map-overlay">
         <!-- User Name -->
-        <div class="game__map-overlay-test game__map-overlay-name">{{userName}}</div>
+        <div class="game__map-overlay-test game__map-overlay-name">{{ userName }}</div>
 
         <!-- Streets -->
         <ng-container *ngFor="let street of streets">
@@ -33,8 +33,9 @@
           <!-- Houses -->
           <ng-container *ngFor="let house of street.houses; let i = index">
             <span class="game__map-overlay-test game__map-overlay-house-{{i}}"
-              [class.game__map-overlay-house-with-pool]="street.poolIndex.includes(i)"
-              [style.top.%]="street.top">{{ 15 - i }}</span>
+              [class.game__map-overlay-house-with-pool]="house.addPool"
+              [style.top.%]="street.top"
+              (click)="onHouse(house, street, i)">{{ house.value }}</span>
           </ng-container>
 
           <!-- Fences -->
@@ -44,55 +45,75 @@
 
           <!-- Parks -->
           <ng-container *ngFor="let park of street.parks; let i = index">
-            <span class="game__map-overlay-test game__map-overlay-park-{{i}} game__map-overlay-marked"
-              [style.top.%]="street.top - 4.6"></span>
+            <span class="game__map-overlay-test game__map-overlay-park-{{i}}"
+              [class.game__map-overlay-marked]="park.marked"
+              [style.top.%]="street.top - 4.6" (click)="onMark(park)"></span>
           </ng-container>
         </ng-container>
 
         <!-- Pools -->
         <ng-container *ngFor="let pool of pools; let i = index">
           <ng-container *ngFor="let slot of pool.slots; let i = index">
-            <span class="game__map-overlay-test game__map-overlay-pool-{{i}} game__map-overlay-marked"
-              [style.left.%]="pool.left"></span>
+            <span class="game__map-overlay-test game__map-overlay-pool-{{i}}"
+              [class.game__map-overlay-marked]="slot.marked"
+              [style.left.%]="pool.left" (click)="onMark(slot)"></span>
           </ng-container>
         </ng-container>
 
         <!-- Agencies -->
         <ng-container *ngFor="let agency of agencies; let i = index">
           <ng-container *ngFor="let slot of agency.slots; let i = index">
-            <span class="game__map-overlay-test game__map-overlay-agency-{{i}} game__map-overlay-marked"
-              [style.left.%]="agency.left" [style.transform]="'translateY(' + agency.offset + '%)'"></span>
+            <span class="game__map-overlay-test game__map-overlay-agency-{{i}}"
+              [class.game__map-overlay-marked]="slot.marked"
+              [style.left.%]="agency.left"
+              [style.transform]="'translateY(' + agency.offset + '%)'"
+              (click)="onMark(slot)"></span>
           </ng-container>
         </ng-container>
 
         <!-- Estates -->
         <ng-container *ngFor="let estate of estates; let i = index">
           <ng-container *ngFor="let slot of estate.slots; let i = index">
-            <span class="game__map-overlay-test game__map-overlay-estate-{{i}} game__map-overlay-marked"
-              [style.left.%]="estate.left" [style.transform]="'translateY(' + estate.offset + '%)'"></span>
+            <span class="game__map-overlay-test game__map-overlay-estate-{{i}}"
+              [class.game__map-overlay-marked]="slot.marked"
+              [style.left.%]="estate.left"
+              [style.transform]="'translateY(' + estate.offset + '%)'"
+              (click)="onMark(slot)"></span>
           </ng-container>
         </ng-container>
 
         <!-- Bises -->
         <ng-container *ngFor="let bis of bises; let i = index">
           <ng-container *ngFor="let slot of bis.slots; let i = index">
-            <span class="game__map-overlay-test game__map-overlay-bis-{{i}} game__map-overlay-marked"
-              [style.left.%]="bis.left"></span>
+            <span class="game__map-overlay-test game__map-overlay-bis-{{i}}"
+              [class.game__map-overlay-marked]="slot.marked"
+              [style.left.%]="bis.left"
+              (click)="onMark(slot)"></span>
           </ng-container>
         </ng-container>
 
         <!-- Round about -->
         <ng-container *ngFor="let slot of roundAbout.slots; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-round-about-{{i}} game__map-overlay-marked"
-            [style.left.%]="roundAbout.left"></span>
+          <span class="game__map-overlay-test game__map-overlay-round-about-{{i}}"
+            [class.game__map-overlay-marked]="slot.marked"
+            [style.left.%]="roundAbout.left"
+            (click)="onMark(slot)"></span>
         </ng-container>
 
         <!-- Refusal -->
         <ng-container *ngFor="let slot of refusal.slots; let i = index">
-          <span class="game__map-overlay-test game__map-overlay-refusal-{{i}} game__map-overlay-marked"
-            [style.left.%]="refusal.left"></span>
+          <span class="game__map-overlay-test game__map-overlay-refusal-{{i}}"
+            [class.game__map-overlay-marked]="slot.marked"
+            [style.left.%]="refusal.left"
+            (click)="onMark(slot)"></span>
         </ng-container>
       </div>
+      <app-game-number
+        *ngIf="selectedHouse"
+        [selectedHouse]="selectedHouse"
+        (clear)="onHouseNumberCleared()"
+        (numberSelected)="onHouseNumberSelected($event)"
+      ></app-game-number>
     </div>
   </section>
 </main>
