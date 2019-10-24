@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '@app/_core';
 
@@ -7,7 +7,7 @@ import { UserService } from '@app/_core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   gameStarted = false;
 
@@ -16,8 +16,10 @@ export class HomeComponent implements OnInit {
     public user: UserService,
   ) { }
 
-  ngOnInit() {}
-
+  /**
+   * When click on start game
+   * Go to login page if user not login yet.
+   */
   onStartGame() {
     if (this.user.user) {
       this.gameStarted = true;
@@ -26,6 +28,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * Go to game page if user click join
+   */
   onJoinRoom() {
     this._router.navigateByUrl('/game');
   }

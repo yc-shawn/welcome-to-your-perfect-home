@@ -12,29 +12,45 @@ export class GameNumberComponent implements OnInit {
 
   choosedNumber = 0;
   addPool = false;
-  numbers = new Array(9).fill('');
+  digits = new Array(9).fill('');
 
   constructor() { }
 
+  /**
+   * Reset choosedNumber and addPool value
+   *
+   * @override
+   */
   ngOnInit() {
     this.choosedNumber = this.selectedHouse.value || 0;
     this.addPool = this.selectedHouse.addPool || false;
   }
 
-  onNumber(selected: number) {
+  /**
+   * Update number base on given digit
+   *
+   * @param digit - Selected digit
+   */
+  onDigit(digit: number) {
     if (this.choosedNumber === 1) {
-      this.choosedNumber = 10 + selected;
+      this.choosedNumber = 10 + digit;
     } else {
-      this.choosedNumber = selected;
+      this.choosedNumber = digit;
     }
   }
 
+  /**
+   * Clear the current number
+   */
   onClear() {
     this.choosedNumber = 0;
     this.addPool = false;
     this.clear.emit();
   }
 
+  /**
+   * Confirm current number and pool status
+   */
   onConfirm() {
     this.numberSelected.emit({
       choosedNumber: this.choosedNumber,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '@app/_core';
 
 @Component({
   selector: 'app-game',
@@ -6,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-
-  userName = 'Shawn';
 
   selectedHouse = null;
 
@@ -46,8 +45,15 @@ export class GameComponent implements OnInit {
 
   refusal: any = { amount: 3, left: 85.2 };
 
-  constructor() { }
+  constructor(
+    public user: UserService,
+  ) { }
 
+  /**
+   * Initialize all the building blocks
+   *
+   * @override
+   */
   ngOnInit() {
     this.streets.forEach(street => {
       street.houses = this._generateSlot(street.amount);
@@ -75,17 +81,35 @@ export class GameComponent implements OnInit {
     this.refusal.slots = this._generateSlot(this.refusal.amount);
   }
 
+  /**
+   * Open number entering dialog when select house
+   * Dialog open when selectedHouse is not none
+   *
+   * @param house - House object
+   * @param street - Street object
+   * @param index - house index
+   */
   onHouse(house, street, index: number) {
     this.selectedHouse = house;
     this.selectedHouse.canPool = street.poolIndex.includes(index);
   }
 
+  /**
+   * Clear selected house value
+   * And reset selectedHouse
+   */
   onHouseNumberCleared() {
     this.selectedHouse.value = null;
     this.selectedHouse = null;
   }
 
-  onHouseNumberSelected({ choosedNumber, addPool}) {
+  /**
+   * Update selected house info when number confirmed.
+   *
+   * @param choosedNumber
+   * @param addPool - Whether to add pool
+   */
+  onHouseNumberSelected({ choosedNumber, addPool }: { choosedNumber: string, addPool: boolean }) {
     this.selectedHouse.value = choosedNumber;
     this.selectedHouse.addPool = addPool;
     this.selectedHouse = null;
@@ -96,7 +120,7 @@ export class GameComponent implements OnInit {
    *
    * @param slot - Slot object
    */
-  onMark(slot) {
+  onMark(slot: any) {
     slot.marked = !slot.marked;
   }
 
