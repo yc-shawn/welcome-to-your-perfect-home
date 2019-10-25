@@ -40,7 +40,9 @@
 
           <!-- Fences -->
           <ng-container *ngFor="let fence of street.fences; let i = index; trackBy:i">
-            <span class="game__map-overlay-test game__map-overlay-fence-{{i}}" [style.top.%]="street.top"></span>
+            <span class="game__map-overlay-test game__map-overlay-fence-{{i}}"
+              [class.game__map-overlay-fence-marked]="fence.marked"
+              [style.top.%]="street.top" (click)="onMark(fence)"></span>
           </ng-container>
 
           <!-- Parks -->

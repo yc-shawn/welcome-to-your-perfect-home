@@ -99,7 +99,6 @@
       $symbolWidth: 2.8%;
       @for $i from 0 to 12 {
         .game__map-overlay-house-#{$i} {
-          // background-color: rgba(0, 0, 0, 0.5);
           right: calc(10.45% + #{$i} * (0.8% + #{$houseWidth}));
           width: $houseWidth;
           height: 10%;
@@ -126,68 +125,62 @@
         }
 
         .game__map-overlay-fence-#{$i} {
-          // background-color: rgba(256, 0, 0, 0.5);
           right: calc(10.45% + #{$houseWidth} + #{$i} * (0.8% + #{$houseWidth}));
           width: 0.8%;
           height: 10%;
-          &::after {
-            content: " ";
-            width: 4px;
-            height: 100%;
-            border-radius: 50%;
-            display: inline-block;
-            background-color: black;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+          &.game__map-overlay-fence-marked {
+            &::after {
+              content: " ";
+              width: 4px;
+              height: 100%;
+              border-radius: 50%;
+              display: inline-block;
+              background-color: black;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
           }
         }
 
         .game__map-overlay-park-#{$i} {
-          // background-color: rgba(0, 0, 256, 0.5);
           right: calc(11.25% + #{$i} * (0.43% + #{$symbolWidth} + #{$i} * 0.04%));
           width: $symbolWidth;
           height: $symbolWidth;
         }
 
         .game__map-overlay-pool-#{$i} {
-          // background-color: rgba(0, 0, 256, 0.5);
           top: calc(71.2% + #{$i} * (0.43% + #{$symbolWidth} + #{$i} * 0.03%));
           width: $symbolWidth;
           height: $symbolWidth;
         }
 
         .game__map-overlay-agency-#{$i} {
-          // background-color: rgba(0, 0, 256, 0.5);
           top: calc(69.7% + #{$i} * (0.92% + #{$symbolWidth} + #{$i} * 0.03%));
           width: $symbolWidth;
           height: $symbolWidth;
         }
 
         .game__map-overlay-estate-#{$i} {
-          // background-color: rgba(0, 0, 256, 0.5);
           top: calc(75.7% + #{$i} * #{$symbolWidth});
           width: $symbolWidth;
           height: $symbolWidth;
         }
 
         .game__map-overlay-bis-#{$i} {
-          // background-color: rgba(0, 0, 256, 0.5);
           top: calc(68.2% + #{$i} * (1.2% + #{$symbolWidth} + #{$i} * 0.02%));
           width: $symbolWidth;
           height: $symbolWidth;
         }
 
         .game__map-overlay-round-about-#{$i} {
-          // background-color: rgba(0, 0, 256, 0.5);
           top: calc(61.8% + #{$i} * (1.1% + #{$symbolWidth}));
           width: $symbolWidth;
           height: $symbolWidth;
         }
 
         .game__map-overlay-refusal-#{$i} {
-          // background-color: rgba(0, 0, 256, 0.5);
           top: calc(73.8% + #{$i} * (1.1% + #{$symbolWidth}));
           width: $symbolWidth;
           height: $symbolWidth;
