@@ -13,6 +13,7 @@ export class GameNumberComponent implements OnInit {
 
   choosedNumber = 0;
   addPool = false;
+  addRoundAbout = false;
   digits = new Array(9).fill('');
 
   constructor(public util: UtilService) { }
@@ -46,6 +47,7 @@ export class GameNumberComponent implements OnInit {
   onClear() {
     this.choosedNumber = 0;
     this.addPool = false;
+    this.addRoundAbout = false;
     this.clear.emit();
   }
 
@@ -55,10 +57,12 @@ export class GameNumberComponent implements OnInit {
   onConfirm() {
     this.numberSelected.emit({
       choosedNumber: this.choosedNumber,
-      addPool: this.addPool
+      addPool: this.addPool,
+      addRoundAbout: this.addRoundAbout,
     });
     this.choosedNumber = 0;
     this.addPool = false;
+    this.addRoundAbout = false;
   }
 
 }

@@ -110,9 +110,12 @@ export class GameComponent implements OnInit {
    * @param choosedNumber
    * @param addPool - Whether to add pool
    */
-  onHouseNumberSelected({ choosedNumber, addPool }: { choosedNumber: string, addPool: boolean }) {
-    this.selectedHouse.value = choosedNumber;
+  onHouseNumberSelected({ choosedNumber, addPool, addRoundAbout }) {
     this.selectedHouse.addPool = addPool;
+    this.selectedHouse.addRoundAbout = addRoundAbout;
+    if (!addRoundAbout) {
+      this.selectedHouse.value = choosedNumber;
+    }
     this.selectedHouse = null;
   }
 

@@ -34,6 +34,7 @@
           <ng-container *ngFor="let house of street.houses; let i = index; trackBy:util.trackByIndex">
             <span class="game__map-overlay-test game__map-overlay-house-{{i}}"
               [class.game__map-overlay-house-with-pool]="house.addPool"
+              [class.game__map-overlay-house-with-roundabout]="house.addRoundAbout"
               [style.top.%]="street.top"
               (click)="onHouse(house, street, i)">{{ house.value }}</span>
           </ng-container>

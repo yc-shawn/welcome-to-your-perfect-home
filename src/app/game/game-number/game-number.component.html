@@ -1,7 +1,14 @@
 <div class="game-number__container">
   <section>
-    <mat-checkbox [(ngModel)]="addPool" [disabled]="!selectedHouse.canPool">Add pool</mat-checkbox>
-    <div class="game-number__choosed-number">
+    <div>
+      <mat-checkbox *ngIf="selectedHouse.canPool" [(ngModel)]="addPool" [disabled]="addRoundAbout">
+        Add pool
+      </mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox [(ngModel)]="addRoundAbout" [disabled]="addPool">Add Round about</mat-checkbox>
+    </div>
+    <div class="game-number__choosed-number" *ngIf="!addRoundAbout">
       {{ choosedNumber }}
     </div>
     <button mat-button (click)="onClear()">Clear</button>
