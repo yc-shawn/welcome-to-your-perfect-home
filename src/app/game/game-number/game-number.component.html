@@ -13,7 +13,7 @@
       <button
         mat-mini-fab
         color="accent"
-        *ngFor="let digit of digits; let index = index; trackBy:index"
+        *ngFor="let digit of digits; let index = index; trackBy:util.trackByIndex"
         (click)="onDigit(index + 1)"
         [disabled]="choosedNumber === 1 && index + 1 > 7">
         {{ index + 1 }}

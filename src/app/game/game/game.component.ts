@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '@app/_core';
+import { UserService, UtilService } from '@app/_core';
 
 @Component({
   selector: 'app-game',
@@ -47,6 +47,7 @@ export class GameComponent implements OnInit {
 
   constructor(
     public user: UserService,
+    public util: UtilService,
   ) { }
 
   /**

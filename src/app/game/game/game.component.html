@@ -28,10 +28,10 @@
         <div class="game__map-overlay-test game__map-overlay-name">{{ user.user?.name || '--' }}</div>
 
         <!-- Streets -->
-        <ng-container *ngFor="let street of streets; let streetIndex = index; trackBy:streetIndex">
+        <ng-container *ngFor="let street of streets; let streetIndex = index; trackBy:util.trackByIndex">
 
           <!-- Houses -->
-          <ng-container *ngFor="let house of street.houses; let i = index; trackBy:i">
+          <ng-container *ngFor="let house of street.houses; let i = index; trackBy:util.trackByIndex">
             <span class="game__map-overlay-test game__map-overlay-house-{{i}}"
               [class.game__map-overlay-house-with-pool]="house.addPool"
               [style.top.%]="street.top"
@@ -39,14 +39,14 @@
           </ng-container>
 
           <!-- Fences -->
-          <ng-container *ngFor="let fence of street.fences; let i = index; trackBy:i">
+          <ng-container *ngFor="let fence of street.fences; let i = index; trackBy:util.trackByIndex">
             <span class="game__map-overlay-test game__map-overlay-fence-{{i}}"
               [class.game__map-overlay-fence-marked]="fence.marked"
               [style.top.%]="street.top" (click)="onMark(fence)"></span>
           </ng-container>
 
           <!-- Parks -->
-          <ng-container *ngFor="let park of street.parks; let i = index; trackBy:i">
+          <ng-container *ngFor="let park of street.parks; let i = index; trackBy:util.trackByIndex">
             <span class="game__map-overlay-test game__map-overlay-park-{{i}}"
               [class.game__map-overlay-marked]="park.marked"
               [style.top.%]="street.top - 4.6" (click)="onMark(park)"></span>
@@ -54,8 +54,8 @@
         </ng-container>
 
         <!-- Pools -->
-        <ng-container *ngFor="let pool of pools; let poolIndex = index; trackBy:poolIndex">
-          <ng-container *ngFor="let slot of pool.slots; let i = index; trackBy:i">
+        <ng-container *ngFor="let pool of pools; let poolIndex = index; trackBy:util.trackByIndex">
+          <ng-container *ngFor="let slot of pool.slots; let i = index; trackBy:util.trackByIndex">
             <span class="game__map-overlay-test game__map-overlay-pool-{{i}}"
               [class.game__map-overlay-marked]="slot.marked"
               [style.left.%]="pool.left" (click)="onMark(slot)"></span>
@@ -63,8 +63,8 @@
         </ng-container>
 
         <!-- Agencies -->
-        <ng-container *ngFor="let agency of agencies; let agencyIndex = index; trackBy:agencyIndex">
-          <ng-container *ngFor="let slot of agency.slots; let i = index; trackBy:i">
+        <ng-container *ngFor="let agency of agencies; let agencyIndex = index; trackBy:util.trackByIndex">
+          <ng-container *ngFor="let slot of agency.slots; let i = index; trackBy:util.trackByIndex">
             <span class="game__map-overlay-test game__map-overlay-agency-{{i}}"
               [class.game__map-overlay-marked]="slot.marked"
               [style.left.%]="agency.left"
@@ -74,8 +74,8 @@
         </ng-container>
 
         <!-- Estates -->
-        <ng-container *ngFor="let estate of estates; let estateIndex = index; trackBy:estateIndex">
-          <ng-container *ngFor="let slot of estate.slots; let i = index; trackBy:i">
+        <ng-container *ngFor="let estate of estates; let estateIndex = index; trackBy:util.trackByIndex">
+          <ng-container *ngFor="let slot of estate.slots; let i = index; trackBy:util.trackByIndex">
             <span class="game__map-overlay-test game__map-overlay-estate-{{i}}"
               [class.game__map-overlay-marked]="slot.marked"
               [style.left.%]="estate.left"
@@ -85,8 +85,8 @@
         </ng-container>
 
         <!-- Bises -->
-        <ng-container *ngFor="let bis of bises; let bisIndex = index; trackBy:bisIndex">
-          <ng-container *ngFor="let slot of bis.slots; let i = index; trackBy:i">
+        <ng-container *ngFor="let bis of bises; let bisIndex = index; trackBy:util.trackByIndex">
+          <ng-container *ngFor="let slot of bis.slots; let i = index; trackBy:util.trackByIndex">
             <span class="game__map-overlay-test game__map-overlay-bis-{{i}}"
               [class.game__map-overlay-marked]="slot.marked"
               [style.left.%]="bis.left"
@@ -95,7 +95,7 @@
         </ng-container>
 
         <!-- Round about -->
-        <ng-container *ngFor="let slot of roundAbout.slots; let i = index; trackBy:i">
+        <ng-container *ngFor="let slot of roundAbout.slots; let i = index; trackBy:util.trackByIndex">
           <span class="game__map-overlay-test game__map-overlay-round-about-{{i}}"
             [class.game__map-overlay-marked]="slot.marked"
             [style.left.%]="roundAbout.left"
@@ -103,7 +103,7 @@
         </ng-container>
 
         <!-- Refusal -->
-        <ng-container *ngFor="let slot of refusal.slots; let i = index; trackBy:i">
+        <ng-container *ngFor="let slot of refusal.slots; let i = index; trackBy:util.trackByIndex">
           <span class="game__map-overlay-test game__map-overlay-refusal-{{i}}"
             [class.game__map-overlay-marked]="slot.marked"
             [style.left.%]="refusal.left"

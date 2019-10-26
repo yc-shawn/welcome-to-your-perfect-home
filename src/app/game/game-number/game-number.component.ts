@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { UtilService } from '@app/_core/services/util.service';
 
 @Component({
   selector: 'app-game-number',
@@ -14,7 +15,7 @@ export class GameNumberComponent implements OnInit {
   addPool = false;
   digits = new Array(9).fill('');
 
-  constructor() { }
+  constructor(public util: UtilService) { }
 
   /**
    * Reset choosedNumber and addPool value
