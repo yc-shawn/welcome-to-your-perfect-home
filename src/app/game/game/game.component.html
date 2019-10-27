@@ -83,6 +83,9 @@
               [style.transform]="'translateY(' + estate.offset + '%)'"
               (click)="onMark(slot)"></span>
           </ng-container>
+          <span class="game__map-overlay-test game__map-overlay-estate-count-{{estateIndex}}">0</span>
+          <span class="game__map-overlay-test game__map-overlay-score"
+            [style.left.%]="estate.left + 0.15 * (estateIndex - 4)">0</span>
         </ng-container>
 
         <!-- Bises -->

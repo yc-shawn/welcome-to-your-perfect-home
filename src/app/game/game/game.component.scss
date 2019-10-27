@@ -193,6 +193,14 @@
           height: $symbolWidth;
         }
 
+        .game__map-overlay-estate-count-#{$i} {
+          top: 85%;
+          left: calc(45% + #{$i} * (1.6% + #{$symbolWidth} + #{$i} * 0.06%));
+          width: $symbolWidth;
+          height: $symbolWidth;
+          text-align: center;
+        }
+
         .game__map-overlay-bis-#{$i} {
           top: calc(68.2% + #{$i} * (1.2% + #{$symbolWidth} + #{$i} * 0.02%));
           width: $symbolWidth;
@@ -209,6 +217,13 @@
           top: calc(73.8% + #{$i} * (1.1% + #{$symbolWidth}));
           width: $symbolWidth;
           height: $symbolWidth;
+        }
+
+        .game__map-overlay-score {
+          top: 90.7%;
+          width: $symbolWidth;
+          height: $symbolWidth;
+          text-align: center;
         }
       }
     }
