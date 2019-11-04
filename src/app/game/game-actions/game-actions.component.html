@@ -1,0 +1,19 @@
+<div class="game__row mb-5">
+  <app-game-card src="plan/n{{planN1.number}}/plan_{{planN1.name}}_{{planN1.position}}" (click)="onFlipPlan(planN1)">
+  </app-game-card>
+  <app-game-card src="plan/n{{planN2.number}}/plan_{{planN2.name}}_{{planN2.position}}" (click)="onFlipPlan(planN2)">
+  </app-game-card>
+  <app-game-card src="plan/n{{planN3.number}}/plan_{{planN3.name}}_{{planN3.position}}" (click)="onFlipPlan(planN3)">
+  </app-game-card>
+</div>
+<div class="game__row">
+  <app-game-card src="back/back_park"></app-game-card>
+  <app-game-card src="back/back_pool"></app-game-card>
+  <app-game-card src="back/back_agency"></app-game-card>
+</div>
+<div class="game__row">
+  <app-game-card src="back/back_estate"></app-game-card>
+  <app-game-card src="back/back_bis"></app-game-card>
+  <app-game-card src="back/back_fence"></app-game-card>
+</div>
+

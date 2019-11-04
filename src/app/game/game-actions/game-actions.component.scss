@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  width: 35%;
+  z-index: 1;
+
+  .game__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+  }
+}

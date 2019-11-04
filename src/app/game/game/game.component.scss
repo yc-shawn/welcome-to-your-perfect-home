@@ -21,15 +21,6 @@
     background: rgb(256, 256, 256, 0.8);
   }
 
-  .game__actions {
-    width: 35%;
-    .game__row {
-      display: flex;
-      justify-content: space-between;
-      padding: 4px;
-    }
-  }
-
   .game__container {
     z-index: 1;
 
