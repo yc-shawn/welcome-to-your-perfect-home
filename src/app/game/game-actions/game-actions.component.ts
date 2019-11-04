@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { random, shuffle } from 'lodash';
-import { PLAN1S, PARKES, FENCES, BISES, AGENCIES, POOLS, ESTATES } from '@app/utils/cards';
+import { PLAN1S, PARKES, FENCES, BISES, AGENCIES, POOLS, ESTATES, PLAN2S } from '@app/utils/cards';
 import { Card } from '@app/_shared';
 
 @Component({
@@ -40,6 +40,8 @@ export class GameActionsComponent implements OnInit {
    */
   ngOnInit() {
     this.planN1.name = PLAN1S[random(0, PLAN1S.length - 1)];
+    this.planN2.name = PLAN2S[random(0, PLAN2S.length - 1)];
+
     this.deck = this.deck.concat(PARKES.map(number => new Card(number, 'park')));
     this.deck = this.deck.concat(FENCES.map(number => new Card(number, 'fence')));
     this.deck = this.deck.concat(BISES.map(number => new Card(number, 'bis')));
