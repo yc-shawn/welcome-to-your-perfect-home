@@ -9,7 +9,11 @@ export class UserService {
 
   user: User;
 
-  constructor(private _router: Router) { }
+  constructor(
+    private _router: Router,
+  ) {
+    this.user = JSON.parse(sessionStorage.getItem('user'));
+  }
 
   /**
    * Login with given user name
@@ -19,6 +23,7 @@ export class UserService {
    */
   login(userName: string) {
     this.user = { name: userName };
+    sessionStorage.setItem('user', JSON.stringify(this.user));
     this._router.navigateByUrl('/');
   }
 }

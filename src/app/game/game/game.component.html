@@ -24,6 +24,7 @@
     <div class="game__map-container">
       <img src="/welcome-to-your-perfect-home/assets/images/game.jpg" alt="game" class="game__map">
       <div class="game__map-overlay">
+
         <!-- User Name -->
         <div class="game__map-overlay-test game__map-overlay-name">{{ user.user?.name || '--' }}</div>
 
@@ -83,9 +84,13 @@
               [style.transform]="'translateY(' + estate.offset + '%)'"
               (click)="onMark(slot)"></span>
           </ng-container>
-          <span class="game__map-overlay-test game__map-overlay-estate-count-{{estateIndex}}">0</span>
+          <span class="game__map-overlay-test game__map-overlay-estate-count-{{estateIndex}}">
+            {{ estate.amount }}
+          </span>
           <span class="game__map-overlay-test game__map-overlay-score"
-            [style.left.%]="estate.left + 0.15 * (estateIndex - 4)">0</span>
+            [style.left.%]="estate.left + 0.15 * (estateIndex - 4)">
+            {{ estate.amount }}
+          </span>
         </ng-container>
 
         <!-- Bises -->
