@@ -7,13 +7,13 @@
   </app-game-card>
 </div>
 <div class="game__row">
-  <app-game-card src="back/back_park"></app-game-card>
-  <app-game-card src="back/back_pool"></app-game-card>
-  <app-game-card src="back/back_agency"></app-game-card>
+  <app-game-card
+    *ngFor="let combination of combinations"
+    src="{{combination.front.action}}/{{combination.front.action}}_{{combination.front.number}}"
+  ></app-game-card>
 </div>
 <div class="game__row">
-  <app-game-card src="back/back_estate"></app-game-card>
-  <app-game-card src="back/back_bis"></app-game-card>
-  <app-game-card src="back/back_fence"></app-game-card>
+  <app-game-card *ngFor="let combination of combinations"
+    src="back/back_{{combination.back.action}}"></app-game-card>
 </div>
 

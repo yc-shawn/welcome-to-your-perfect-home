@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PLAN1S } from '@app/utils/cards';
+import { random, shuffle } from 'lodash';
+import { PLAN1S, PARKES, FENCES, BISES, AGENCIES, POOLS, ESTATES } from '@app/utils/cards';
+import { Card } from '@app/_shared';
 
 @Component({
   selector: 'app-game-actions',
@@ -26,6 +28,10 @@ export class GameActionsComponent implements OnInit {
     position: 'front'
   };
 
+  deck: Card[] = [];
+
+  combinations: any[] = [];
+
   constructor() { }
 
   /**
@@ -33,7 +39,24 @@ export class GameActionsComponent implements OnInit {
    * @override
    */
   ngOnInit() {
-    this.planN1.name = PLAN1S[Math.round(Math.random() * (PLAN1S.length - 1))];
+    this.planN1.name = PLAN1S[random(0, PLAN1S.length - 1)];
+    this.deck = this.deck.concat(PARKES.map(number => new Card(number, 'park')));
+    this.deck = this.deck.concat(FENCES.map(number => new Card(number, 'fence')));
+    this.deck = this.deck.concat(BISES.map(number => new Card(number, 'bis')));
+    this.deck = this.deck.concat(AGENCIES.map(number => new Card(number, 'agency')));
+    this.deck = this.deck.concat(POOLS.map(number => new Card(number, 'pool')));
+    this.deck = this.deck.concat(ESTATES.map(number => new Card(number, 'estate')));
+
+    this.deck = shuffle(this.deck);
+
+    for (let index = 0; index < 3; index++) {
+      this.combinations.push({
+        front: { },
+        back: this.deck.shift()
+      });
+    }
+
+    this.showCards();
   }
 
   /**
@@ -47,6 +70,16 @@ export class GameActionsComponent implements OnInit {
     } else {
       plan.position = 'front';
     }
+  }
+
+  /**
+   * Show new cards from deck
+   */
+  showCards() {
+    this.combinations.forEach(combination => {
+      combination.front = combination.back;
+      combination.back = this.deck.shift();
+    });
   }
 
 }
